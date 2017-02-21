@@ -1,0 +1,155 @@
+// color
+@white_color: #FFFFFF; 
+@black_color: #000000; 
+@base_color: #DC543C;
+@footer_color: #333333;
+@blue_color : #1F3F7C;
+
+.blue_color {
+	color: @white_color;
+	background: @blue_color;
+}
+
+// font family 
+@font_family: 'Open-Sans';
+
+// transition
+.transition(@transition) {
+	-webkit-transition: @transition;
+	-moz-transition: @transition;
+	-ms-transition: @transition;
+	-o-transition: @transition;
+	transition: @transition;
+}
+
+/***************** Primary css *****************/
+* {
+	margin: 0;
+	padding: 0;
+}
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+body {
+	color: @black_color;
+	font-size: 18px;
+	font-weight: 300;
+	font-family: @font_family;
+	overflow-x: hidden;
+}
+
+h1 { font-size: 36px; }
+h2 { font-size: 30px; }
+h3 { font-size: 24px; }
+h4 { font-size: 18px; }
+h5 { font-size: 24px; }
+h6 { font-size: 24px; }
+p { }
+a {
+	color: @base_color;
+
+	&:hover, &:focus, &:active {
+		text-decoration: none;
+	}
+}
+input, textarea {
+	border: 1px solid #9B9B9C;
+	padding: 8px 15px;
+	border-radius: 0;
+}
+section {
+	padding: 60px 0;
+}
+
+/***************** header css *****************/
+#header {
+	
+	.topbar {
+	    font-size: 14px;
+	    padding: 13px 0;
+		color: @white_color;
+		background: @black_color;
+		text-transform: uppercase;
+
+		.phoneNumber {
+
+		}
+
+		.top-menu {
+			margin: 0;
+		}
+
+		a {
+			color: @white_color;
+		}
+	}
+
+	.primary-menu {
+
+		.navbar-header {
+
+		}
+		.navbar-nav {
+
+			li {
+
+				a {
+
+				}
+			}
+		}
+	}
+}
+
+/***************** site-info css *****************/
+.site-info {
+	
+	.site_title {
+		font-size: 86px;
+		font-weight: 300;
+		text-transform: uppercase;
+	}
+	.site-tagline {
+
+	}
+}
+
+.social-media {
+	
+	li {
+
+		a {
+
+			i {
+
+			}
+		}
+	}	
+}
+
+/***************** site-info css *****************/
+.category-list {
+
+	.category-item {
+	    display: inline-flex;
+	    align-items: center;
+	    margin: 0 0 20px;
+	    width: 100%;
+
+	    .category-logo {
+	    	background: @white_color;
+	    	border: 1px solid #343434;
+	    }
+
+	    .category-title {
+		    display: inline-flex;
+		    justify-content: center;
+		    text-transform: uppercase;
+		    padding: 0 15px;
+		    width: 100%;
+		}
+	}
+}
