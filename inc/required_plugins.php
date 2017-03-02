@@ -18,33 +18,21 @@ function granolaecommerce_register_required_plugins() {
 			'source'       	=> get_stylesheet_directory() . '/inc/plugins/advanced-custom-fields-pro.zip',
 			'required'           => true,
 		),
-
+		array(
+			'name'               => 'Kirki', 
+			'slug'               => 'kirki', 
+			'required'           => true, 
+		),
 		array(
 			'name'      	=> 'WooCommerce',
 			'slug'      	=> 'woocommerce',
 			'required'  	=> true,
 		),
-
-		// array(
-		// 	'name'      	=> 'Ajax Search for WooCommerce',
-		// 	'slug'      	=> 'ajax-search-for-woocommerce',
-		// 	'required'  	=> true,
-		// ),
-		// array(
-		// 	'name'      	=> 'Nav Menu Roles',
-		// 	'slug'      	=> 'nav-menu-roles',
-		// 	'required'  	=> true,
-		// ),
 		array(
 			'name'      	=> 'Contact Form 7',
 			'slug'      	=> 'contact-form-7',
 			'required'  	=> true,
-		),
-		array(
-			'name'      	=> 'Advanced Custom Fields: Typography Field',
-			'slug'      	=> 'acf-typography-field',
-			'required'  	=> true,
-		),
+		)
 	);
 
 	/*

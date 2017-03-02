@@ -37,7 +37,7 @@ body {
 	color: @black_color;
 	font-size: 18px;
 	font-weight: 300;
-	font-family: @font_family;
+	font-family: 'Arial';
 	overflow-x: hidden;
 }
 
@@ -47,7 +47,9 @@ h3 { font-size: 24px; }
 h4 { font-size: 18px; }
 h5 { font-size: 24px; }
 h6 { font-size: 24px; }
-p { }
+p {
+    margin: 0 0 15px;
+}
 a {
 	color: @base_color;
 
@@ -59,6 +61,10 @@ input, textarea {
 	border: 1px solid #9B9B9C;
 	padding: 8px 15px;
 	border-radius: 0;
+}
+ol {
+    padding-left: 40px;
+    list-style-type: lower-latin;
 }
 section {
 	padding: 60px 0;
@@ -117,13 +123,50 @@ section {
 		margin: 0;
 		border-radius: 0;
 		padding: 28px 0;
+		font-family: 'Gill Sans MT';
+	    text-transform: uppercase;
+	    font-weight: 300;
 
 		.navbar-header {
 			.navbar-brand {
-			    font-family: 'GillSansMT';
-			    font-weight: 300;
 			    font-size: 51px;
 			    color: #FFF;
+			}
+
+			.navbar-toggle {
+				border: 0 !important;
+
+				&:hover, &:focus, &:active {
+					background-color: transparent;
+				}
+
+				.icon-bar {
+				    background-color: #FFF;
+				    .transition(all 0.5s);
+				}
+			}
+		}
+		.navbar-toggle.in {
+			.icon-bar {
+				width: 30px;
+				
+				&:nth-child(1) {
+				    -webkit-transform: rotate(45deg);
+				    -moz-transform: rotate(45deg);
+				    -o-transform: rotate(45deg);
+				    transform: rotate(45deg);
+				}
+				&:nth-child(2) {
+				    opacity: 0;
+    				visibility: hidden;
+				}
+				&:nth-child(3) {
+				    -webkit-transform: rotate(-45deg);
+				    -moz-transform: rotate(-45deg);
+				    -o-transform: rotate(-45deg);
+				    transform: rotate(-45deg);
+					margin: -8px 0 0;
+				}
 			}
 		}
 		.navbar-nav {
@@ -131,16 +174,26 @@ section {
 			li {
 
 				a {
-					font-family: 'GillSansMT';
-			    	font-weight: 400;
+			    	font-weight: normal;
 			    	font-size: 20px;
     				color: #FFF;
 			    	text-transform: uppercase;
+				}
+
+				&:last-child a {
+				    padding-right: 0;
+				}
+			}
+			li.current-menu-item {
+				a {
+			    	background-color: transparent !important;
 				}
 			}
 		}
 	}
 }
+
+/* Cart */
 .mini-cart-items {
     width: 200px;
     position: absolute;
@@ -262,6 +315,26 @@ section {
 				text-align: center;
 			}
 		}
+
+		.primary-menu {
+
+			.navbar-header {
+				.navbar-brand {
+				    font-size: 26px;
+				}
+			}
+
+			.navbar-nav {
+
+				li {
+
+					a {
+						font-weight: 300;
+    					text-align: center;
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -269,7 +342,7 @@ section {
 /***************** site-info css *****************/
 .site-info {
 	padding: 110px 0 60px;
-	font-family: 'GillSansMT';
+	font-family: 'Gill Sans MT';
 
 	.site_title {
 		color: #000;
@@ -335,7 +408,7 @@ section {
 		}	
 	}
 }
-/***************** site-info css *****************/
+/***************** Home Page Categories *****************/
 .category-list {
 	
 	.sub-heading {
@@ -377,8 +450,8 @@ section {
 					margin: 0;
 					color: #FFF;
 					font-size: 30px;
-					font-weight: 400;
-					font-family: 'GillSansMT';
+					font-weight: normal;
+					font-family: 'Gill Sans MT';
 			    }
 			}
 		}
@@ -395,9 +468,66 @@ section {
 	}
 }
 
-/***************** Page Header *****************/
+/***************** Page Css *****************/
+.content-area {
+    padding: 60px 0;
+}
+
 .header-image {
-    max-height: 410px;
+    min-height: 410px;
+    min-height: 64.2vmin;
     background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
+}
+
+/* Events */
+#events {
+	padding: 60px 0 120px;
+
+	.event-item {
+		padding: 30px;
+		margin: 0 0 30px;
+	    border: 1px solid #333333;
+	    font-family: 'HelveticaNeue LT 55 Roman';
+    	text-transform: uppercase;
+    	position: relative;
+
+    	&:before {
+		    content: '';
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    position: absolute;
+		    border-top-width: 7.5px;
+		    border-top-style: solid;
+		}
+
+    	.artist {
+    		font-weight: 600;
+    		margin: 0 0 10px;
+    	}
+    	.misc-text {
+    		font-size: 15.5px;
+    		margin: 0 0 10px;
+    		display: block;
+    	}
+    	.venue {
+    		font-weight: 600;
+    		margin: 0 0 20px;
+    	}
+    	.date {
+    		font-size: 16px;
+    		margin: 0 0 27px;
+    	}
+    	.logo {
+    		width: 62px;
+		    height: 62px;
+		    margin: 0 auto;
+
+    		img {
+
+    		}
+    	}
+	}
 }

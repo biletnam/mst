@@ -2,6 +2,14 @@
 	"use strict";
 
 	/**
+	 * Header Nav Toggle
+	 *
+	 */
+	$('.navbar-toggle').click(function(){
+        $(this).toggleClass('in');
+    });
+
+	/**
 	 * Header Mini cart hover ajaxfy
 	 *
 	 */
@@ -14,8 +22,6 @@
 		   }
 		 );
 	});
-	 
-	
 
 	/**
 	 * Smooth scroll

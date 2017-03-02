@@ -18,7 +18,7 @@ body {
   color: #000000;
   font-size: 18px;
   font-weight: 300;
-  font-family: 'Open-Sans';
+  font-family: 'Arial';
   overflow-x: hidden;
 }
 h1 {
@@ -39,6 +39,9 @@ h5 {
 h6 {
   font-size: 24px;
 }
+p {
+  margin: 0 0 15px;
+}
 a {
   color: #dc543c;
 }
@@ -52,6 +55,10 @@ textarea {
   border: 1px solid #9B9B9C;
   padding: 8px 15px;
   border-radius: 0;
+}
+ol {
+  padding-left: 40px;
+  list-style-type: lower-latin;
 }
 section {
   padding: 60px 0;
@@ -100,20 +107,63 @@ section {
   margin: 0;
   border-radius: 0;
   padding: 28px 0;
+  font-family: 'Gill Sans MT';
+  text-transform: uppercase;
+  font-weight: 300;
 }
 #header .primary-menu .navbar-header .navbar-brand {
-  font-family: 'GillSansMT';
-  font-weight: 300;
   font-size: 51px;
   color: #FFF;
 }
+#header .primary-menu .navbar-header .navbar-toggle {
+  border: 0 !important;
+}
+#header .primary-menu .navbar-header .navbar-toggle:hover,
+#header .primary-menu .navbar-header .navbar-toggle:focus,
+#header .primary-menu .navbar-header .navbar-toggle:active {
+  background-color: transparent;
+}
+#header .primary-menu .navbar-header .navbar-toggle .icon-bar {
+  background-color: #FFF;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#header .primary-menu .navbar-toggle.in .icon-bar {
+  width: 30px;
+}
+#header .primary-menu .navbar-toggle.in .icon-bar:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#header .primary-menu .navbar-toggle.in .icon-bar:nth-child(2) {
+  opacity: 0;
+  visibility: hidden;
+}
+#header .primary-menu .navbar-toggle.in .icon-bar:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  margin: -8px 0 0;
+}
 #header .primary-menu .navbar-nav li a {
-  font-family: 'GillSansMT';
-  font-weight: 400;
+  font-weight: normal;
   font-size: 20px;
   color: #FFF;
   text-transform: uppercase;
 }
+#header .primary-menu .navbar-nav li:last-child a {
+  padding-right: 0;
+}
+#header .primary-menu .navbar-nav li.current-menu-item a {
+  background-color: transparent !important;
+}
+/* Cart */
 .mini-cart-items {
   width: 200px;
   position: absolute;
@@ -224,11 +274,18 @@ section {
     margin: 10px 0 0;
     text-align: center;
   }
+  #header .primary-menu .navbar-header .navbar-brand {
+    font-size: 26px;
+  }
+  #header .primary-menu .navbar-nav li a {
+    font-weight: 300;
+    text-align: center;
+  }
 }
 /***************** site-info css *****************/
 .site-info {
   padding: 110px 0 60px;
-  font-family: 'GillSansMT';
+  font-family: 'Gill Sans MT';
 }
 .site-info .site_title {
   color: #000;
@@ -278,7 +335,7 @@ section {
 #footer .social-media li a {
   color: #FFF;
 }
-/***************** site-info css *****************/
+/***************** Home Page Categories *****************/
 .category-list .sub-heading {
   color: #ca0c26;
   margin: 0 0 60px;
@@ -315,8 +372,8 @@ section {
   margin: 0;
   color: #FFF;
   font-size: 30px;
-  font-weight: 400;
-  font-family: 'GillSansMT';
+  font-weight: normal;
+  font-family: 'Gill Sans MT';
 }
 .category-list .category-item-footer {
   color: #898987;
@@ -327,9 +384,57 @@ section {
   text-transform: uppercase;
   font-family: 'Open Sans', sans-serif;
 }
-/***************** Page Header *****************/
+/***************** Page Css *****************/
+.content-area {
+  padding: 60px 0;
+}
 .header-image {
-  max-height: 410px;
+  min-height: 410px;
+  min-height: 64.2vmin;
   background-size: cover;
+  background-position: center center;
   background-repeat: no-repeat;
+}
+/* Events */
+#events {
+  padding: 60px 0 120px;
+}
+#events .event-item {
+  padding: 30px;
+  margin: 0 0 30px;
+  border: 1px solid #333333;
+  font-family: 'HelveticaNeue LT 55 Roman';
+  text-transform: uppercase;
+  position: relative;
+}
+#events .event-item:before {
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  border-top-width: 7.5px;
+  border-top-style: solid;
+}
+#events .event-item .artist {
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+#events .event-item .misc-text {
+  font-size: 15.5px;
+  margin: 0 0 10px;
+  display: block;
+}
+#events .event-item .venue {
+  font-weight: 600;
+  margin: 0 0 20px;
+}
+#events .event-item .date {
+  font-size: 16px;
+  margin: 0 0 27px;
+}
+#events .event-item .logo {
+  width: 62px;
+  height: 62px;
+  margin: 0 auto;
 }
