@@ -27,23 +27,10 @@
 
 	<body <?php body_class(); ?>>
 		<header id="header">
-			<div class="topbar">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-12">
-							<span class="phoneNumber">Phone: <a href="tel+416-817-8787">416-817-8787</a></span>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-12">
-							<ul class="top-menu list-inline text-right">
-								<li><a href="#">Cart(0)</a></li>
-								<li><a href="#">Checkout</a></li>
-							</ul>
-						</div>
-					</div><!-- /row -->
-				</div><!-- /container -->
-			</div><!-- /topbar -->
+			<?php locate_template( 'template-parts/headers/topbar.php', true );
+			?>
 
-			<div class="navbar navbar-default primary-menu">
+			<div class="navbar navbar-default primary-menu" style="background: #1E3F7C">
 			  	<div class="container">
 					<div class="navbar-header">
 					  	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -76,5 +63,12 @@
 			</div><!--/ Navbar -->
 		</header><!-- /header -->
 
+		<div class="header-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/banner.png')">
+			<div class="container">
+				<div class="row">
+					
+				</div>
+			</div>
+		</div>
 
 		<div id="content" class="site-content">

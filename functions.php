@@ -29,16 +29,13 @@ function mst_setup() {
 
 	/*
 	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
+	 *
 	 */
 	add_theme_support( 'title-tag' );
 
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
 
@@ -67,6 +64,12 @@ function mst_setup() {
 
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
+
+	// Woocommerce Support
+	add_theme_support( 'woocommerce' );
+
+	// Shortcode Support 
+	add_filter('widget_text','do_shortcode');
 }
 endif;
 add_action( 'after_setup_theme', 'mst_setup' );
@@ -108,7 +111,9 @@ function mst_scripts() {
 	/**
 	 * Enqueue styles.
 	 */
+	wp_enqueue_style('Open-Sans', 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800', array(), false, 'all');
 	wp_enqueue_style('ionicons', 'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css', array(), false, 'all');
+	wp_enqueue_style('all-fonts', get_template_directory_uri() . '/fonts/fonts.css', array(), false, 'all');
 	wp_enqueue_style('bootstrap-min', get_template_directory_uri() . '/css/bootstrap.min.css', array(), false, 'all');
 	wp_enqueue_style('mststyle', get_template_directory_uri() . '/css/mst_style.css', array(), false, 'all');
 	wp_enqueue_style( 'mst-style', get_stylesheet_uri() );
@@ -132,7 +137,9 @@ add_action( 'wp_enqueue_scripts', 'mst_scripts' );
 /**
  * Default Required Files
  */
+require get_template_directory() . '/inc/required_plugins.php';
 require get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
+require get_template_directory() . '/inc/woocommerce/integrations.php';
 
 require get_template_directory() . '/inc/custom-header.php';
 require get_template_directory() . '/inc/template-tags.php';

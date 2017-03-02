@@ -27,21 +27,8 @@
 
 	<body <?php body_class(); ?>>
 		<header id="header">
-			<div class="topbar">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-12">
-							<span class="phoneNumber">Phone: <a href="tel+416-817-8787">416-817-8787</a></span>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-12">
-							<ul class="top-menu list-inline text-right">
-								<li><a href="#">Cart(0)</a></li>
-								<li><a href="#">Checkout</a></li>
-							</ul>
-						</div>
-					</div><!-- /row -->
-				</div><!-- /container -->
-			</div><!-- /topbar -->
+			<?php locate_template( 'template-parts/headers/topbar.php', true );
+			?>
 		</header><!-- /header -->
 
 

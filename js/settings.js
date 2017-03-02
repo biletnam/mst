@@ -2,9 +2,18 @@
 	"use strict";
 
 	/**
-	 * Your Custom JS Settings Here.
+	 * Header Mini cart hover ajaxfy
 	 *
 	 */
+	$('.cart-toggler').hover(function(){
+		var data = {
+	   	'action': 'mode_theme_update_mini_cart'
+		 };
+		 $.post( woocommerce_params.ajax_url, data, function(response){
+		     $('.mini-cart-items').html(response);
+		   }
+		 );
+	});
 	 
 	
 
