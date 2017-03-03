@@ -7,15 +7,14 @@ Template name: FrontPage
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 ol-sm-12 col-xs-12">
-					<h1 class="site_title">Made The Show</h1>
-					<p class="site-tagline">Toronto Concerts, Theatre & Sporting Events</p>
+					<h1 class="site_title"><?php bloginfo( 'name' ); ?></h1>
 
-					<ul class="social-media list-inline">
-						<li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
-						<li><a href="#"><i class="ion-social-twitter"></i></a></li>
-						<li><a href="#"><i class="ion-social-facebook"></i></a></li>
-						<li><a href="#"><i class="ion-ios-email"></i></a></li>
-					</ul>
+					<?php $description = get_bloginfo( 'description', 'display' );
+					if ( $description || is_customize_preview() ) : ?>
+						<p class="site-tagline"><?php echo $description; ?></p>
+					<?php endif; ?>
+					
+					<?php if (get_theme_mod('mst_social_switcher')) { social_media(); } ?>
 				</div>
 			</div>
 		</div>

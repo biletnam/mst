@@ -316,6 +316,10 @@ section {
   -o-transition: all 0.5s;
   transition: all 0.5s;
 }
+.social-media li a i[class*=fa-] {
+  font-size: 24px;
+  overflow: hidden;
+}
 .social-media li:hover a {
   color: #1E3F7C;
 }
