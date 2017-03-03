@@ -1,8 +1,12 @@
-<div class="topbar" style="background: #000000">
+<?php 
+	$topbar_bg = get_theme_mod( 'mst_header_bg' ); 
+	$topbar_phone = get_theme_mod( 'mst_header_phone' ); 
+?>
+<div class="topbar" style="background: <?php echo $topbar_bg['header_bg']; ?>">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-sm-6 col-xs-12">
-				<span class="phoneNumber">Phone: <a href="tel+416-817-8787">416-817-8787</a></span>
+				<span class="phoneNumber">Phone: <a href="tel:+<?php echo $topbar_phone; ?>"><?php echo $topbar_phone; ?></a></span>
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12">
 				<ul class="top-menu list-inline text-right">

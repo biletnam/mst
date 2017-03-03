@@ -72,7 +72,7 @@ Template name: Events
 					</div>
 				</div><!-- /event-item -->
 
-				<style type="text/css">.event-item:before{border-color: #EC1E31;}</style>
+				<style type="text/css">.event-item:before{border-color: #1E3F7C;}</style>
 			</div>
 		</div>
 	</div>

@@ -23,6 +23,8 @@
 		 );
 	});
 
+	$('[data-remodal-id=modal]').remodal(options);
+	
 	/**
 	 * Smooth scroll
 	 *

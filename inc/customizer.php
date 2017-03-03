@@ -14,6 +14,10 @@ function mst_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+
+	$wp_customize->remove_section( 'colors');
+	$wp_customize->remove_section( 'header_image');
+	$wp_customize->remove_section( 'background_image');
 }
 add_action( 'customize_register', 'mst_customize_register' );
 

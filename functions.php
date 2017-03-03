@@ -115,6 +115,8 @@ function mst_scripts() {
 	wp_enqueue_style('ionicons', 'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css', array(), false, 'all');
 	wp_enqueue_style('all-fonts', get_template_directory_uri() . '/fonts/fonts.css', array(), false, 'all');
 	wp_enqueue_style('bootstrap-min', get_template_directory_uri() . '/css/bootstrap.min.css', array(), false, 'all');
+	wp_enqueue_style('remodal-popup', get_template_directory_uri() . '/css/remodal.css', array(), false, 'all');
+	wp_enqueue_style('remodal-popup-default', get_template_directory_uri() . '/css/remodal-default-theme.css', array(), false, 'all');
 	wp_enqueue_style('mststyle', get_template_directory_uri() . '/css/mst_style.css', array(), false, 'all');
 	wp_enqueue_style( 'mst-style', get_stylesheet_uri() );
 
@@ -123,6 +125,7 @@ function mst_scripts() {
 	 */
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('bootstrap-min', get_template_directory_uri() . '/js/bootstrap.min.js', array(), false, true);
+	wp_enqueue_script('remodal-popup', get_template_directory_uri() . '/js/remodal.min.js', array(), false, true);
 	wp_enqueue_script('settings', get_template_directory_uri() . '/js/settings.js', array(), false, true);
 
 	wp_enqueue_script( 'mst-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
@@ -138,6 +141,7 @@ add_action( 'wp_enqueue_scripts', 'mst_scripts' );
  * Default Required Files
  */
 require get_template_directory() . '/inc/required_plugins.php';
+require get_template_directory() . '/inc/customizer-kirki.php';
 require get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
 require get_template_directory() . '/inc/woocommerce/integrations.php';
 
