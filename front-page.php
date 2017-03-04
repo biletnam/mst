@@ -22,76 +22,52 @@ Template name: FrontPage
 
 	<div class="category-list">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-offset-1 col-md-10 col-sm-12 col-xs-12">
-					<div class="sub-heading text-center">
-						<p>HEADLINE TEXT. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+
+			<?php if (get_theme_mod('mst_headline_switcher')): ?>
+				<div class="row">
+					<div class="col-md-offset-1 col-md-10 col-sm-12 col-xs-12">
+						<?php $headline_spacing = get_theme_mod('mst_headline_spacing'); ?>
+						<div class="sub-heading text-center" style="margin: <?php echo $headline_spacing['top'] ?> <?php echo $headline_spacing['right']; ?> <?php echo $headline_spacing['bottom']; ?> <?php echo $headline_spacing['left']; ?>">
+							<p><?php echo get_theme_mod('mst_headline'); ?></p>
+						</div>
 					</div>
 				</div>
-			</div>
+			<?php endif ?>
+
 			<div class="row">
 				<div class="col-md-offset-1 col-md-10 col-sm-12 col-xs-12">
 					<ul>
-						<li class="category-item" style="background: #CA0C26;">
-							<a href="#">
-								<div class="category-logo">
-									<img src="<?php echo get_template_directory_uri(); ?>/img/category-1.png" alt="">
-								</div>
-								<div class="category-title">
-									<h4>Toronto Raptors</h4>
-								</div>
-							</a>
-						</li>
-						<li class="category-item" style="background: #1E3F7C;">
-							<a href="#">
-								<div class="category-logo">
-									<img src="<?php echo get_template_directory_uri(); ?>/img/category-2.png" alt="">
-								</div>
-								<div class="category-title">
-									<h4>Toronto Maple Leafs</h4>
-								</div>
-							</a>
-						</li>
-						<li class="category-item" style="background: #ED202D;">
-							<a href="#" >
-								<div class="category-logo">
-									<img src="<?php echo get_template_directory_uri(); ?>/img/category-3.png" alt="">
-								</div>
-								<div class="category-title">
-									<h4>Toronto Fc</h4>
-								</div>
-							</a>
-						</li>
-						<li class="category-item" style="background: #0D4C8F;">
-							<a href="#">
-								<div class="category-logo">
-									<img src="<?php echo get_template_directory_uri(); ?>/img/category-4.png" alt="">
-								</div>
-								<div class="category-title">
-									<h4>Toronto Blue Jays</h4>
-								</div>
-							</a>
-						</li>
-						<li class="category-item" style="background: #B2A174;">
-							<a href="#">
-								<div class="category-logo">
-									<img src="<?php echo get_template_directory_uri(); ?>/img/category-5.png" alt="">
-								</div>
-								<div class="category-title">
-									<h4>Toronto Concerts</h4>
-								</div>
-							</a>
-						</li>
+						<?php 
+		    				$stores = get_terms('stores');
+							foreach ($stores as $store) {
+		    					$storecolor = get_field('store_color', $store);
+		    					$storeicon = get_field('icon', $store);
+		    					$icon = wp_get_attachment_image_src($storeicon, 'store_icon');
+								echo '<li class="category-item '.$store->slug.'" style="background: '.$storecolor.';">
+									<a href="'.get_category_link($store->term_id).'">
+										<div class="category-logo">
+											<img src="'.$icon[0].'" alt="">
+										</div>
+										<div class="category-title">
+											<h4>'.$store->name.'</h4>
+										</div>
+									</a>
+								</li>';
+							}
+						?>
 					</ul>
 					
 				</div>
 			</div><!-- /row -->
 
-			<div class="row">
-				<div class="col-md-offset-1 col-md-10 col-sm-12 col-xs-12">
-					<h4 class="category-item-footer">tickets in limited quantities</h4>
+			<?php if (get_theme_mod('mst_disclaimer_switcher')): ?>
+				<div class="row">
+					<div class="col-md-offset-1 col-md-10 col-sm-12 col-xs-12">
+						<?php $disclaimer_spacing = get_theme_mod('mst_disclaimer_spacing'); ?>
+						<h4 class="category-item-footer"  style="margin: <?php echo $disclaimer_spacing['top'] ?> <?php echo $disclaimer_spacing['right']; ?> <?php echo $disclaimer_spacing['bottom']; ?> <?php echo $disclaimer_spacing['left']; ?>"><?php echo get_theme_mod('mst_disclaimer'); ?></h4>
+					</div>
 				</div>
-			</div>
+			<?php endif ?>
 		</div>
 	</div>
 <?php get_footer(); ?>

@@ -27,10 +27,8 @@
 
 	<body <?php body_class(); ?>>
 		<header id="header">
-			<?php locate_template( 'template-parts/headers/topbar.php', true );
-			?>
-
-			<div class="navbar navbar-default primary-menu" style="background: #1E3F7C">
+			<?php locate_template( 'template-parts/headers/topbar.php', true ); ?>
+			<div class="navbar navbar-default primary-menu" style="background: <?php echo getTaxField('store_color'); ?>">
 			  	<div class="container">
 					<div class="navbar-header">
 					  	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -62,13 +60,15 @@
 			  	</div><!-- /container -->
 			</div><!--/ Navbar -->
 		</header><!-- /header -->
-
-		<div class="header-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/banner.png')">
-			<div class="container">
-				<div class="row">
-					
+		
+		<?php if (is_tax('stores') || is_singular('events') ): ?>
+			<div class="header-image" style="background-image: url(<?php echo getTaxField('banner_image'); ?>)">
+				<div class="container">
+					<div class="row">
+						
+					</div>
 				</div>
 			</div>
-		</div>
+		<?php endif ?>
 		
 		<div id="content" class="site-content">

@@ -1,7 +1,7 @@
 <?php
 function mst_panels_sections( $wp_customize ) {
 	/*--------------------------------------------------
-	===========Header setting ============
+	=========== Header setting ============
 	------------------------------------------------*/
 	$wp_customize->add_section( 'mst_header_settings', array(
 		'title'       			=> __( 'Header', 'mst' ),
@@ -9,10 +9,26 @@ function mst_panels_sections( $wp_customize ) {
 	) );
 
 	/*--------------------------------------------------
-	===========Logo setting ============
+	=========== Social Media setting ============
 	------------------------------------------------*/
 	$wp_customize->add_section( 'mst_social_settings', array(
 		'title'					=> __( 'Social Media', 'mst' ),
+		'priority'    			=> 10,
+	) );
+
+	/*--------------------------------------------------
+	=========== Headline Text setting ============
+	------------------------------------------------*/
+	$wp_customize->add_section( 'mst_headline_settings', array(
+		'title'					=> __( 'Headline Text', 'mst' ),
+		'priority'    			=> 10,
+	) );
+
+	/*--------------------------------------------------
+	===========Disclaimer Text  setting ============
+	------------------------------------------------*/
+	$wp_customize->add_section( 'mst_disclaimer_settings', array(
+		'title'					=> __( 'Disclaimer Text', 'mst' ),
 		'priority'    			=> 10,
 	) );
 
@@ -88,6 +104,121 @@ function mst_fields( $fields ) {
 		'settings'    			=> 'mst_social_switcher',
 		'label'       			=> esc_attr__( 'Show / Hide', 'mst' ),
 		'default'     			=> '1',
+	);
+
+	/*------------------------ Headline Text --------------------------------*/
+
+	$fields[] = array(
+		'type'        			=> 'textarea',
+		'section'    			=> 'mst_headline_settings',
+		'priority'    			=> 10,
+		'settings'    			=> 'mst_headline',
+		'label'       			=> esc_attr__( 'Headline Text', 'mst' ),
+		'default'     			=> 'HEADLINE TEXT. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+		'tooltip'				=> 'This headline text is homepage sub heading text.',
+	);
+
+	$fields[] = array(
+		'type'        			=> 'toggle',
+		'section'    			=> 'mst_headline_settings',
+		'priority'    			=> 10,
+		'settings'    			=> 'mst_headline_switcher',
+		'label'       			=> esc_attr__( 'Show / Hide', 'mst' ),
+		'default'     			=> '1',
+	);
+
+	$fields[] = array(
+		'type'        			=> 'spacing',
+		'section'     			=> 'mst_headline_settings',
+		'priority'    			=> 10,
+		'settings'    			=> 'mst_headline_spacing',
+		'label'       			=> __( 'Spacing Control', 'mst' ),
+		'default'     			=> array(
+			'top'    			=> '0px',
+			'bottom' 			=> '60px',
+			'left'   			=> '0px',
+			'right'  			=> '0px',
+		),
+	);
+
+	$fields[] = array(
+		'type'        			=> 'typography',
+		'section'     			=> 'mst_headline_settings',
+		'priority'    			=> 10,
+		'settings'    			=> 'mst_headline_typography',
+		'label'       			=> esc_attr__( 'Headline Typography', 'mst' ),
+		'default'     			=> array(
+			'font-family'    	=> 'Arial',
+			'variant'        	=> 'regular',
+			'font-size'      	=> '18px',
+			'line-height'    	=> '1.5',
+			'letter-spacing' 	=> '0',
+			'color'          	=> '#ca0c26',
+			'text-transform' 	=> 'uppercase',
+			'text-align'     	=> 'center'
+		),
+		'output'      			=> array(
+			array(
+				'element' 		=> '.category-list .sub-heading > p',
+			),
+		),
+	);
+
+	/*------------------------ Disclaimer Text --------------------------------*/
+
+	$fields[] = array(
+		'type'        			=> 'textarea',
+		'section'    			=> 'mst_disclaimer_settings',
+		'priority'    			=> 10,
+		'settings'    			=> 'mst_disclaimer',
+		'label'       			=> esc_attr__( 'Disclaimer Text', 'mst' ),
+		'default'     			=> 'Tickets in limited quantities',
+	);
+
+	$fields[] = array(
+		'type'        			=> 'toggle',
+		'section'    			=> 'mst_disclaimer_settings',
+		'priority'    			=> 10,
+		'settings'    			=> 'mst_disclaimer_switcher',
+		'label'       			=> esc_attr__( 'Show / Hide', 'mst' ),
+		'default'     			=> '1',
+	);
+
+	$fields[] = array(
+		'type'        			=> 'spacing',
+		'section'     			=> 'mst_disclaimer_settings',
+		'priority'    			=> 10,
+		'settings'    			=> 'mst_disclaimer_spacing',
+		'label'       			=> __( 'Spacing Control', 'mst' ),
+		'default'     			=> array(
+			'top'    			=> '40px',
+			'bottom' 			=> '150px',
+			'left'   			=> '0px',
+			'right'  			=> '0px',
+		),
+	);
+
+	$fields[] = array(
+		'type'        			=> 'typography',
+		'section'     			=> 'mst_disclaimer_settings',
+		'priority'    			=> 10,
+		'settings'    			=> 'mst_disclaimer_typography',
+		'label'       			=> esc_attr__( 'Headline Typography', 'mst' ),
+		'default'     			=> array(
+			'font-family'    	=> 'Open Sans',
+			'variant'        	=> '600',
+			'font-size'      	=> '20px',
+			'line-height'    	=> '1.1',
+			'letter-spacing' 	=> '0',
+			'color'          	=> '#898987',
+			'text-transform' 	=> 'none',
+			'text-align'     	=> 'center'
+		),
+		'output'      			=> array(
+			array(
+				'element' 		=> '.category-list .category-item-footer',
+			),
+		),
 	);
 
 	return $fields;

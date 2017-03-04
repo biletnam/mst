@@ -9,12 +9,14 @@
  * @package MST
  */
 
+
 ?>
+
 
 			</div><!-- /content -->
 
 			<footer id="footer">
-				<div class="site-info text-center" style="background: #1E3F7C;">
+				<div class="site-info text-center" style="background: <?php echo getTaxField('store_color'); ?>">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12 ol-sm-12 col-xs-12">

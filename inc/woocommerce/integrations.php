@@ -30,3 +30,30 @@ function mode_theme_update_mini_cart() {
 }
 add_filter( 'wp_ajax_nopriv_mode_theme_update_mini_cart', 'mode_theme_update_mini_cart' );
 add_filter( 'wp_ajax_mode_theme_update_mini_cart', 'mode_theme_update_mini_cart' );
+
+/**
+ * Change checkout form field placeholder and label
+ *
+ */  
+function granolaecommerce_checkout_fields_placeholder( $fields ) {
+	$fields['billing']['billing_first_name']['placeholder'] = 'First Name *';
+
+	$fields['billing']['billing_last_name']['placeholder'] = 'Last Name *';
+
+	$fields['billing']['billing_company']['placeholder'] = 'Company Name';
+
+	$fields['billing']['billing_email']['placeholder'] = 'Email Address *';
+
+	$fields['billing']['billing_phone']['placeholder'] = 'Phone *';
+
+
+	$fields['billing']['billing_address_1']['placeholder'] = 'Address *';
+
+	$fields['billing']['billing_state']['label'] = 'Town / City';
+
+	$fields['billing']['billing_postcode']['placeholder'] = 'Postcode *';
+
+
+	return $fields;
+}
+add_filter( 'woocommerce_checkout_fields' , 'granolaecommerce_checkout_fields_placeholder' );

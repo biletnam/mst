@@ -4,6 +4,7 @@
  */
 require get_template_directory() . '/inc/required_plugins.php';
 require get_template_directory() . '/inc/customizer-kirki.php';
+require get_template_directory() . '/inc/custom_post_type.php';
 require get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
 require get_template_directory() . '/inc/woocommerce/integrations.php';
 
@@ -52,6 +53,8 @@ function mst_setup() {
 	 *
 	 */
 	add_theme_support( 'post-thumbnails' );
+	add_image_size( 'store_icon', 120, 113, true );
+	add_image_size( 'event_logo', 62, 62, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -165,5 +168,19 @@ function social_media() {
 		<?php }
 
 		echo '</ul>';
+	}
+}
+
+/* get store taxonomy custom fields values */
+function getTaxField($field) {
+	if( is_tax()){ 
+		$store_term = get_queried_object();
+		return get_field($field, $store_term);
+	} elseif (is_singular('events')) {
+		global $post;
+		$store_terms = get_the_terms( $post->ID, 'stores');
+		return get_field($field, $store_terms[0]);
+	} else {
+		return '#1E3F7C';
 	}
 }
