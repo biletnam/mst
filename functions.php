@@ -55,6 +55,7 @@ function mst_setup() {
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'store_icon', 120, 113, true );
 	add_image_size( 'event_logo', 62, 62, true );
+	add_image_size( 'product_img', 835, 514, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -183,4 +184,26 @@ function getTaxField($field) {
 	} else {
 		return '#1E3F7C';
 	}
+}
+
+
+function mst_product($postids) {
+	$args = array(
+		'post_type' => 'product',
+		'posts_per_page' => -1,
+		'post__in' => $postids
+	);
+
+	$loop = new WP_Query( $args );
+
+	if ( $loop->have_posts() ) {
+		while ( $loop->have_posts() ) : $loop->the_post();
+
+		get_template_part( 'template-parts/content', 'product' );
+
+		endwhile;
+	} else {
+		echo __( '<div class="tickets-not-found text-center"><h1>No products found!</h1><p>Sorry, there are no products for this game.</p></div>' );
+	}
+	wp_reset_postdata();
 }

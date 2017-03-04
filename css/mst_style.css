@@ -542,6 +542,12 @@ section {
 .with-images .purchase-item-img {
   margin: 0 0 30px;
 }
+.tickets-not-found {
+  font-family: 'Gill Sans MT';
+}
+.tickets-not-found h1 {
+  font-size: 57px;
+}
 .cart-after-popup {
   max-width: 557px;
   padding: 40px 40px 25px;
