@@ -124,25 +124,25 @@ function mst_text_row_two_save( $post_id ) {
 }
 add_action( 'woocommerce_process_product_meta', 'mst_text_row_two_save' );
 
-function mst_product_template() {
-    // Print a custom text field
-    woocommerce_wp_select( array(
-        'id' => 'product_template',
-        'label' => 'Template',
-        'options' => array(
-            '' => __('Choose a template', 'mst'),
-            'one' => __('Template 1', 'mst'),
-            'two' => __('Template 2', 'mst')
-        ),
-        //'description' => 'Check if fast shipping available.',
-        //'desc_tip' => 'true',
-    ) );
-}
-add_action( 'woocommerce_product_options_general_product_data', 'mst_product_template' );
+// function mst_product_template() {
+//     // Print a custom text field
+//     woocommerce_wp_select( array(
+//         'id' => 'product_template',
+//         'label' => 'Template',
+//         'options' => array(
+//             '' => __('Choose a template', 'mst'),
+//             'one' => __('Template 1', 'mst'),
+//             'two' => __('Template 2', 'mst')
+//         ),
+//         //'description' => 'Check if fast shipping available.',
+//         //'desc_tip' => 'true',
+//     ) );
+// }
+// add_action( 'woocommerce_product_options_general_product_data', 'mst_product_template' );
 
-function mst_product_template_save( $post_id ) {
-    if ( ! empty( $_POST['product_template'] ) ) {
-        update_post_meta( $post_id, 'product_template', esc_attr( $_POST['product_template'] ) );
-    }
-}
-add_action( 'woocommerce_process_product_meta', 'mst_product_template_save' );
+// function mst_product_template_save( $post_id ) {
+//     if ( ! empty( $_POST['product_template'] ) ) {
+//         update_post_meta( $post_id, 'product_template', esc_attr( $_POST['product_template'] ) );
+//     }
+// }
+// add_action( 'woocommerce_process_product_meta', 'mst_product_template_save' );
