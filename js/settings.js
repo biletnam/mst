@@ -23,7 +23,7 @@
 		 );
 	});
 
-	$('[data-remodal-id=modal]').remodal(options);
+	//$('[data-remodal-id=modal]').remodal(options);
 	
 	/**
 	 * Smooth scroll
@@ -44,5 +44,11 @@
 	  });
 	});
 
+	// Preloader 
+	$(window).on('load', function() {  
+		$('#preloader > .site-info').fadeOut();
+		$('#preloader').delay(500).fadeOut('slow');  
+		$('body').delay(3000).css({'overflow':'visible'});
+	})
 
 }(jQuery));	

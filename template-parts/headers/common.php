@@ -26,6 +26,28 @@
 	</head>
 
 	<body <?php body_class(); ?>>
+
+		<div id="preloader">
+			<div class="site-info text-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 ol-sm-12 col-xs-12">
+							<h1 class="site_title"><?php bloginfo( 'name' ); ?></h1>
+
+							<?php $description = get_bloginfo( 'description', 'display' );
+							if ( $description || is_customize_preview() ) : ?>
+								<p class="site-tagline"><?php echo $description; ?></p>
+							<?php endif; ?>
+							
+							<?php if (get_theme_mod('mst_social_switcher')) { social_media(); } ?>
+
+							<div class='preloader-bar'><span></span><span></span><span></span><span></span><span></span><span></span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<header id="header">
 			<?php locate_template( 'template-parts/headers/topbar.php', true ); ?>
 			<div class="navbar navbar-default primary-menu" style="background: <?php echo getTaxField('store_color'); ?>">
