@@ -27,6 +27,10 @@ get_header(); ?>
 			<div class="row">
 
 				<?php
+
+					global $parent_page_id;
+				 	$parent_page_id = get_the_ID();
+
 					$args = array(
 						'post_type' => 'product',
 						'posts_per_page' => -1,
@@ -38,8 +42,8 @@ get_header(); ?>
 					if ( $loop->have_posts() ) {
 						while ( $loop->have_posts() ) : $loop->the_post();
 
-						get_template_part( 'template-parts/products/product', 'one' );
-
+						include(locate_template( 'template-parts/products/product-one.php'));
+						
 						endwhile;
 					} else {
 						echo __( '<div class="tickets-not-found text-center"><h1>No products found!</h1><p>Sorry, there are no products for this game.</p></div>' );

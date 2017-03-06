@@ -55,7 +55,7 @@ function mst_setup() {
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'store_icon', 120, 113, true );
 	add_image_size( 'event_logo', 62, 62, true );
-	add_image_size( 'product_img', 835, 514, true );
+	add_image_size( 'product_img_size', 870, 536, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -173,13 +173,12 @@ function social_media() {
 }
 
 /* get store taxonomy custom fields values */
-function getTaxField($field) {
+function getTaxField( $field, $id=NULL) {
 	if( is_tax()){ 
 		$store_term = get_queried_object();
 		return get_field($field, $store_term);
 	} elseif (is_singular('events')) {
-		global $post;
-		$store_terms = get_the_terms( $post->ID, 'stores');
+		$store_terms = get_the_terms($id, 'stores');
 		return get_field($field, $store_terms[0]);
 	} else {
 		return '#1E3F7C';
