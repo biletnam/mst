@@ -32,6 +32,16 @@ function mst_register_required_plugins() {
 			'name'      	=> 'Contact Form 7',
 			'slug'      	=> 'contact-form-7',
 			'required'  	=> true,
+		),
+		array(
+			'name'      	=> 'Post Types Order',
+			'slug'      	=> 'post-types-order',
+			'required'  	=> true,
+		),
+		array(
+			'name'      	=> 'WP Term Order',
+			'slug'      	=> 'wp-term-order',
+			'required'  	=> true,
 		)
 	);
 
