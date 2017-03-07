@@ -184,25 +184,3 @@ function getTaxField( $field, $id=NULL) {
 		return '#1E3F7C';
 	}
 }
-
-
-function mst_product($postids) {
-	$args = array(
-		'post_type' => 'product',
-		'posts_per_page' => -1,
-		'post__in' => $postids
-	);
-
-	$loop = new WP_Query( $args );
-
-	if ( $loop->have_posts() ) {
-		while ( $loop->have_posts() ) : $loop->the_post();
-
-		get_template_part( 'template-parts/content', 'product' );
-
-		endwhile;
-	} else {
-		echo __( '<div class="tickets-not-found text-center"><h1>No products found!</h1><p>Sorry, there are no products for this game.</p></div>' );
-	}
-	wp_reset_postdata();
-}

@@ -30,8 +30,17 @@ get_header(); ?>
 								<h4 class="date" style="color: <?php echo getTaxField('store_color'); ?>"><?php the_field('date_time'); ?></h4>
 
 								<div class="logo">
-									<?php $logo = get_field('logo'); $logo = wp_get_attachment_image_src($logo, 'event_logo'); ?>
-									<img src="<?php echo $logo[0]; ?>" alt="">
+									<?php 
+										$logo = get_field('logo'); 
+										$logo = wp_get_attachment_image_src($logo, 'event_logo'); 
+
+										$taxLogo = getTaxField('icon');
+										$taxLogo = wp_get_attachment_image_src($taxLogo, 'event_logo');
+										$selected_logo = $logo[0] ? $logo[0] : $taxLogo[0];
+
+
+										?>
+									<img src="<?php echo $selected_logo; ?>" alt="">
 								</div>
 							</a>
 						</div>
