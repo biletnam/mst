@@ -11,10 +11,10 @@ get_header();
 	
 	$product_template = get_field('product_template');
 
-	if($product_template == 'template_two') {
-		get_template_part('template-parts/events/template-2');
-	} else {
+	if($product_template == 'template_one') {
 		get_template_part('template-parts/events/template-1');
+	} else {
+		get_template_part('template-parts/events/template-2');
 	}
 
 get_footer();

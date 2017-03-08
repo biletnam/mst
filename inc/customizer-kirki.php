@@ -1,6 +1,14 @@
 <?php
 function mst_panels_sections( $wp_customize ) {
 	/*--------------------------------------------------
+	=========== Default Color setting ============
+	------------------------------------------------*/
+	$wp_customize->add_section( 'mst_defaultcolor_settings', array(
+		'title'       			=> __( 'Color', 'mst' ),
+		'priority'    			=> 10,
+	) );
+
+	/*--------------------------------------------------
 	=========== Header setting ============
 	------------------------------------------------*/
 	$wp_customize->add_section( 'mst_header_settings', array(
@@ -38,6 +46,22 @@ add_action( 'customize_register', 'mst_panels_sections' );
 
 
 function mst_fields( $fields ) {
+
+	/*------------------------ Default Color --------------------------------*/
+	$fields[] = array(
+		'type'					=> 'multicolor',
+		'section'     			=> 'mst_defaultcolor_settings',
+		'priority'    			=> 10,
+		'settings'    			=> 'mst_default_color',
+		'label'       			=> esc_attr__( 'Default Site Color ', 'mst' ),
+		'description'			=> esc_attr__( 'Change site header & footer color.', 'mst' ),
+		'choices'     			=> array(
+			'default_color'    		=> esc_attr__( '', 'mst' )
+		),
+		'default'     			=> array(
+			'default_color'    		=> '#1E3F7C'
+		),
+	);
 
 	/*------------------------ Header Top Bar --------------------------------*/
 	$fields[] = array(

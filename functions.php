@@ -181,6 +181,7 @@ function getTaxField( $field, $id=NULL) {
 		$store_terms = get_the_terms($id, 'stores');
 		return get_field($field, $store_terms[0]);
 	} else {
-		return '#1E3F7C';
+		$default_color = get_theme_mod( 'mst_default_color' ); 
+		return $default_color['default_color'];
 	}
 }
