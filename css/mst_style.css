@@ -409,6 +409,9 @@ section {
   text-transform: uppercase;
   position: relative;
 }
+#events .event-item:hover {
+    opacity: 0.4;
+}
 #events .event-item:before {
   content: '';
   top: 0;

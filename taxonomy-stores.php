@@ -19,8 +19,8 @@ get_header(); ?>
 
 					<!-- event-item -->
 					<div class="col-md-4 col-sm-6 col-xs-12">
-						<div class="event-item text-center">
-							<a href="<?php the_permalink(); ?>">
+						<a href="<?php the_permalink(); ?>">
+							<div class="event-item text-center">
 								<h4 class="artist" style="color: <?php echo getTaxField('store_color'); ?>"><?php the_field('team_artist'); ?></h4>
 
 								<span class="misc-text" style="color: #000000;"><?php the_field('misc_text'); ?></span>
@@ -42,8 +42,8 @@ get_header(); ?>
 										?>
 									<img src="<?php echo $selected_logo; ?>" alt="">
 								</div>
-							</a>
-						</div>
+							</div>
+						</a>
 					</div><!-- /event-item -->
 
 				<?php endwhile; ?>
