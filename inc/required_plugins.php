@@ -42,6 +42,11 @@ function mst_register_required_plugins() {
 			'name'      	=> 'WP Term Order',
 			'slug'      	=> 'wp-term-order',
 			'required'  	=> true,
+		)		
+		array(
+			'name'      	=> 'Admin Menu Manager',
+			'slug'      	=> 'admin-menu-manager',
+			'required'  	=> true,
 		)
 	);
 
