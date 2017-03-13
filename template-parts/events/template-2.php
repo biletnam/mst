@@ -23,13 +23,16 @@ get_header(); ?>
 
 				<?php
 
-				 	global $parent_page_id;
-				 	$parent_page_id = get_the_ID();
+					global $event_id;
+				 	$event_id = get_the_ID();
+
+				 	$seating = get_field('seating');
+				 	$seat_ids = wp_list_pluck($seating, 'seat_id');
 
 					$args = array(
 						'post_type' => 'product',
 						'posts_per_page' => -1,
-						'post__in' => get_field('tickets')
+						'post__in' => $seat_ids
 					);
 
 					$loop = new WP_Query( $args );

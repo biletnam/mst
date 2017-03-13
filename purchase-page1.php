@@ -98,15 +98,4 @@ Template name: Purchase 1
 		</div>
 	</div>
 
-	<a href="#modal" class="">Click Me</a>
-
-	<div class="remodal cart-after-popup text-center" data-remodal-id="modal">
-		<h4 class="message"><span>thanks!</span> only hard copy tickets available for this event.</h4>
-		<div class="form-inline">
-			<div class="form-group">
-				<a href="" class="button"  style="background-color: #1E3F7C">continue shopping</a>
-				<a href="<?php echo wc_get_checkout_url(); ?>" class="button"  style="background-color: #1E3F7C">checkout</a>
-			</div>
-		</div>
-	</div>
 <?php get_footer(); ?>

@@ -177,11 +177,86 @@ function getTaxField( $field, $id=NULL) {
 	if( is_tax()){ 
 		$store_term = get_queried_object();
 		return get_field($field, $store_term);
-	} elseif (is_singular('events')) {
+	} else {
+	// } elseif (is_singular('events')) {
 		$store_terms = get_the_terms($id, 'stores');
 		return get_field($field, $store_terms[0]);
-	} else {
-		$default_color = get_theme_mod( 'mst_default_color' ); 
-		return $default_color['default_color'];
 	}
+	// } else {
+	// 	$default_color = get_theme_mod( 'mst_default_color' ); 
+	// 	return $default_color['default_color'];
+	// }
 }
+
+
+/* get available seats number */
+function getAvailableSeats($eventid, $seatid) {
+
+	//get total seats
+	$seating = get_field('seating', $eventid);
+	$seat_ids = wp_list_pluck($seating, 'seat_id');
+	$number_of_seats = wp_list_pluck($seating, 'number_of_seats');
+	$event_seats = array_combine($seat_ids, $number_of_seats);
+
+	// get sold seats
+	$sold_seats = get_post_meta($eventid, 'sold_seats', true);
+
+	$available_seats = $sold_seats[$seatid] ? $event_seats[$seatid] - $sold_seats[$seatid] : $event_seats[$seatid];
+
+	return $available_seats;
+
+}
+
+
+/* process ticket ajax */
+function processTickets_func(){
+	global $woocommerce;
+	$quantity = $_POST['quantity'];
+	$eventid = $_POST['eventid'];
+	$seatid = $_POST['seatid'];
+	$store_color = getTaxField('store_color', $eventid);
+	$checkouturl = $woocommerce->cart->get_checkout_url();
+	$available_seats = getAvailableSeats($eventid, $seatid);
+
+	$status = 'FAILED';
+	$title = 'Sorry!';
+
+	if($available_seats <= 0 ) {
+		$message = 'Seats for this event isn\'t available';
+	} elseif ( $available_seats < $quantity ) {
+		$message = 'Only ' . $available_seats . ' seats available';
+	} else {
+		$added_to_cart = $woocommerce->cart->add_to_cart($seatid, $quantity);
+		if($added_to_cart) {
+			$sold_seats = get_post_meta($eventid, 'sold_seats', true);
+			$sold_seats = is_array($sold_seats) ? $sold_seats : array();
+			$sold_seats[$seatid] = $sold_seats[$seatid] ? $sold_seats[$seatid] : 0;
+			$sold_seats[$seatid] += $quantity;
+			update_post_meta($eventid, 'sold_seats', $sold_seats);
+			$title = 'Thanks';
+			$message = 'Your tickets have been added to cart!';
+			$status = 'SUCCESS';
+		} else {
+			$message = 'Error in purchasing ticket!';
+		}
+	}
+
+	echo json_encode(array( 'status' => $status, 'title' => $title, 'message' => $message, 'storecolor' => $store_color, 'checkouturl' => $checkouturl, 'availableseats' => getAvailableSeats($eventid, $seatid) ));
+	die();
+
+}
+add_action('wp_ajax_processTickets', 'processTickets_func');
+add_action('wp_ajax_nopriv_processTickets', 'processTickets_func');
+
+/* update event meta after publish */
+// add_action('publish_post', 'update_event_meta', 10, 2);
+// function update_event_meta( $ID, $post ) {
+//     $event_seats = get_post_meta($ID, 'event_seats', true);
+//     if( get_post_type('events') ) {
+//     	$seating = get_field('seating', $ID);
+// 	 	$seat_ids = wp_list_pluck($seating, 'seat_id');
+// 	 	$number_of_seats = wp_list_pluck($seating, 'number_of_seats');
+// 	 	$event_seats = array_combine($seat_ids, $number_of_seats);
+//         update_post_meta($ID, 'event_seats', $event_seats);
+//     }
+// }
