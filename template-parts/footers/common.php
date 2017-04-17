@@ -27,6 +27,10 @@
 									<p class="site-tagline"><?php echo $description; ?></p>
 								<?php endif; ?>
 
+								<?php $headline_text = get_theme_mod( 'mst_header_headline' ); if($headline_text) : ?>
+									<p class="site-tagline"><?php echo $headline_text; ?></p>
+								<?php endif; ?>
+
 								<?php if (get_theme_mod('mst_social_switcher')) { social_media(); } ?>
 							</div>
 						</div>

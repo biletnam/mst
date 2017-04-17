@@ -298,7 +298,7 @@ section {
   color: #333;
   font-size: 20px;
   font-weight: normal;
-  margin: 0 0 55px;
+  margin: 0 0 40px;
   text-transform: uppercase;
 }
 .social-media {
@@ -335,6 +335,9 @@ section {
   font-size: 20px;
   font-weight: 100;
   margin: 0 0 40px;
+}
+#footer .site-info .site-tagline a {
+  color: #fff;
 }
 #footer .social-media li a {
   color: #FFF;
@@ -408,9 +411,7 @@ section {
   font-family: 'HelveticaNeue LT 55 Roman';
   text-transform: uppercase;
   position: relative;
-}
-#events .event-item:hover {
-    opacity: 0.4;
+  min-height: 290px;
 }
 #events .event-item:before {
   content: '';
@@ -504,7 +505,7 @@ section {
   color: #FFF;
   font-size: 16px;
   border: 0;
-  padding: 6px 30px;
+  padding: 6px 25px;
   text-transform: uppercase;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;

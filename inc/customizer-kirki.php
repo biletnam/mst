@@ -65,6 +65,14 @@ function mst_fields( $fields ) {
 
 	/*------------------------ Header Top Bar --------------------------------*/
 	$fields[] = array(
+		'type'        			=> 'toggle',
+		'section'    			=> 'mst_header_settings',
+		'priority'    			=> 10,
+		'settings'    			=> 'mst_header_enable',
+		'label'       			=> esc_attr__( 'Show / Hide', 'mst' ),
+		'default'     			=> '1',
+	);
+	$fields[] = array(
 		'type'					=> 'multicolor',
 		'section'     			=> 'mst_header_settings',
 		'priority'    			=> 10,
@@ -87,6 +95,15 @@ function mst_fields( $fields ) {
 		'label'       			=> esc_attr__( 'Phone Number', 'mst' ),
 		'description'			=> esc_attr__( 'Change Phone Number of header.', 'mst' ),
 		'default'     			=> '416-817-8787',
+	);
+
+	$fields[] = array(
+		'type'        			=> 'textarea',
+		'section'    			=> 'mst_header_settings',
+		'priority'    			=> 10,
+		'settings'    			=> 'mst_header_headline',
+		'label'       			=> esc_attr__( 'Headline Text', 'mst' ),
+		'default'     			=> 'Call now for inquiries: 647-228-7184',
 	);
 
 	/*------------------------ Social Media --------------------------------*/
