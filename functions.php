@@ -260,3 +260,30 @@ add_action('wp_ajax_nopriv_processTickets', 'processTickets_func');
 //         update_post_meta($ID, 'event_seats', $event_seats);
 //     }
 // }
+
+
+// Custom css
+function acf_template_radio_css() {
+    echo '<style type="text/css">
+			.acf-field.acf-field-radio.acf-field-58bbd87cfd701 .acf-radio-list li label {
+				display: flex;
+    			align-items: center;
+    			justify-content: center;
+    			flex-direction: column-reverse;
+			}
+			.acf-field.acf-field-radio.acf-field-58bbd87cfd701 .acf-radio-list li label img {
+				border: 2px solid transparent;
+			}
+			.acf-field.acf-field-radio.acf-field-58bbd87cfd701 .acf-radio-list li label.selected img {
+				border-color: #C5C5C5;
+			}
+			.acf-field.acf-field-radio.acf-field-58bbd87cfd701 .acf-radio-list li span {
+				font-weight: 500;
+				padding: 0 0 5px;
+			}
+			.acf-field.acf-field-radio.acf-field-58bbd87cfd701 .acf-radio-list li input[type="radio"] {
+				margin: 15px 0 0;
+			}
+		</style>';
+}
+add_action('admin_head', 'acf_template_radio_css');
