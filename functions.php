@@ -201,7 +201,7 @@ function getAvailableSeats($eventid, $seatid) {
 	// get sold seats
 	$sold_seats = get_post_meta($eventid, 'sold_seats', true);
 
-	$available_seats = $sold_seats[$seatid] ? $event_seats[$seatid] - $sold_seats[$seatid] : $event_seats[$seatid];
+	$available_seats = isset( $sold_seats[$seatid] ) ? $event_seats[$seatid] - $sold_seats[$seatid] : $event_seats[$seatid];
 
 	return $available_seats;
 
