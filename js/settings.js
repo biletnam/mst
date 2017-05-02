@@ -75,8 +75,12 @@
 							<a href="" class="button" data-remodal-action="close" style="background-color: '+ resp.storecolor +'">continue shopping</a>\
 							<a href="'+ resp.checkouturl + '" class="button"  style="background-color: '+ resp.storecolor +'">checkout</a>\
 						</div>\
-					</div></div>';
-				$(content).appendTo('body');
+					</div></div>';				
+				// Fixed message until Tristan figure out all of the logic. 2 May, 2017 
+				var fixedContent = '<div class="remodal cart-after-popup text-center" data-remodal-id="modal">\
+				<h4 class="message"><span>Thanks</span>PLEASE CALL <a href="tel:+6472287184">647-228-7184</a> TO ARRANGE PICKUP.</h4>\
+				</div>';
+				$(fixedContent).appendTo('body');
 				let modal = $('[data-remodal-id=modal]').remodal(); // initiate modal
 				modal.open();
 			},

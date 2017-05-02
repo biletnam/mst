@@ -36,7 +36,8 @@ get_header(); ?>
 					$args = array(
 						'post_type' => 'product',
 						'posts_per_page' => -1,
-						'post__in' => $seat_ids
+						'post__in' => $seat_ids,
+						'orderby'  => 'post__in'
 					);
 
 					$loop = new WP_Query( $args );
