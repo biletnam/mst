@@ -27,7 +27,7 @@
 							<input type="hidden" name="eventid" value="<?php echo $event_id; ?>">
 							<input type="hidden" name="seatid" value="<?php echo $seat_id; ?>">
 						</div>
-						<button type="submit" class="single_add_to_cart_button button"  style="background-color: <?php echo $store_color; ?>">Buy Now</button>
+						<button type="submit" class="single_add_to_cart_button button"  style="background-color: <?php echo $store_color; ?>">Call Now</button>
 				 	</div>
 				</form>
 			</div>
