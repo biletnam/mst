@@ -232,7 +232,8 @@ function processTickets_func(){
 			$sold_seats = is_array($sold_seats) ? $sold_seats : array();
 			$sold_seats[$seatid] = $sold_seats[$seatid] ? $sold_seats[$seatid] : 0;
 			$sold_seats[$seatid] += $quantity;
-			update_post_meta($eventid, 'sold_seats', $sold_seats);
+			// DON'T UPDATE ANY STOCK UNTIL TRISTAN NEED A CART FUNCTION
+			// update_post_meta($eventid, 'sold_seats', $sold_seats);
 			$title = 'Thanks';
 			$message = 'Your tickets have been added to cart!';
 			$status = 'SUCCESS';
