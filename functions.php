@@ -172,6 +172,7 @@ function social_media() {
 	}
 }
 
+
 /* get store taxonomy custom fields values */
 function getTaxField( $field, $id=NULL) {
 	if( is_tax()){ 
